@@ -1,0 +1,46 @@
+// tsconfig.json — Archivo de configuración del compilador de TypeScript.
+// Le dice a 'tsc' (TypeScript Compiler) cómo transformar tu código .ts a .js.
+{
+  "compilerOptions": {
+    // Versión de JavaScript a la que se compilará el código.
+    // ES2020 es compatible con Node.js 14+.
+    "target": "ES2020",
+
+    // Sistema de módulos que usará el código compilado.
+    // 'commonjs' es el estándar de Node.js (require/module.exports).
+    "module": "commonjs",
+
+    // Librerías de tipos disponibles en tiempo de compilación.
+    "lib": ["ES2020"],
+
+    // Carpeta donde el compilador deposita los archivos .js resultantes.
+    "outDir": "./dist",
+
+    // Carpeta raíz donde está el código fuente TypeScript.
+    "rootDir": "./src",
+
+    // Activa todas las verificaciones estrictas de tipos.
+    // Muy recomendado: obliga a escribir código más seguro y predecible.
+    "strict": true,
+
+    // Permite importar módulos CommonJS con la sintaxis 'import x from ...'.
+    // Sin esto, muchos paquetes npm no se podrían importar limpiamente.
+    "esModuleInterop": true,
+
+    // Omite la verificación de tipos en archivos .d.ts de node_modules.
+    // Acelera la compilación y evita errores en librerías de terceros.
+    "skipLibCheck": true,
+
+    // Previene bugs en sistemas de archivos case-insensitive (Windows/macOS).
+    "forceConsistentCasingInFileNames": true,
+
+    // Permite importar archivos .json directamente en TypeScript.
+    "resolveJsonModule": true
+  },
+
+  // Archivos que el compilador debe incluir (todos los .ts dentro de src/).
+  "include": ["src/**/*"],
+
+  // Carpetas que el compilador debe ignorar.
+  "exclude": ["node_modules", "dist"]
+}

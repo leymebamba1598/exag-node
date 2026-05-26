@@ -1,0 +1,13 @@
+# .gitignore — Le dice a Git qué archivos/carpetas NO debe versionar.
+
+# Dependencias instaladas por npm. Se regeneran con 'npm install',
+# no tiene sentido subir miles de archivos al repositorio.
+node_modules/
+
+# Código JavaScript compilado por TypeScript. Se regenera con 'npm run build'.
+# El fuente real está en src/, esto es un artefacto de construcción.
+dist/
+
+# Variables de entorno (contraseñas, API keys, configuración sensible).
+# NUNCA debe subirse al repositorio por seguridad.
+.env
