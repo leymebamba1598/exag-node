@@ -77,7 +77,7 @@ app.use('/users', createUserRouter(userController));
 app.post('/person', validatePerson, (req, res) => {
   res.status(201).json({ message: 'Person created successfully' });
 });
-console.log('POST /person route registered with validatePerson middleware');
+
 // ─── Inicio del servidor ─────────────────────────────────────────────────────
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
