@@ -22,3 +22,7 @@ jobs:
     steps:
     - name: 'Hello word'
       run: echo "Hello word"
+    - name: 'Dime la fecha'
+      run: date
+    - name: 'Dime la versión de node'
+      run: node --version
