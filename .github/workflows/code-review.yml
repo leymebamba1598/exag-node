@@ -11,7 +11,7 @@ on:
     types: [opened, reopened, synchronize]
 
 permissions:
-  pull-requests: write
+  pull-requests: write  # Necesario para comentar en PRs
   contents: read   # Necesario para leer el código
 
 jobs:
