@@ -20,5 +20,5 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: 'Hello word'
+    - name: : 'Hello word'
       run: echo "Hello word"
