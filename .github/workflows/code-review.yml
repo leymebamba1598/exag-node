@@ -15,4 +15,4 @@ jobs:
       - name: DeepSeek Code Review
         uses: hustcer/deepseek-review@v1
         with:
-          chat-token: ${{ secrets.SECRET_API_DEEPSEK }}
+          chat-token: ${{ secrets.DIDIER_SECRET_DEESEEK }}
