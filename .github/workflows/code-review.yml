@@ -1,18 +1,16 @@
 name: Code Review
 
 on:
-  push:  # Se ejecuta en cada commit/push
+  push:
     branches:
-      - main      # Opcional: solo en rama principal
-      - master    # Si usas master en lugar de main
-      - 'feature/**'  # También en ramas feature
-  # También puedes mantener pull_request si quieres ambos
+      - main
+      - develop
   pull_request:
-    types: [opened, reopened, synchronize]
+    types: [opened, synchronize, reopened]
 
 permissions:
-  pull-requests: write  # Necesario para comentar en PRs
-  contents: read   # Necesario para leer el código
+  pull-requests: write
+  contents: read
 
 jobs:
   deepseek-cr:
@@ -28,3 +26,38 @@ jobs:
         uses: hustcer/deepseek-review@v1
         with:
           chat-token: ${{ secrets.DIDIER_SECRET_DEESEEK }}
+          model: deepseek-chat
+          temperature: 0.3
+          sys-prompt: |
+            Eres un experto revisor de código especializado en calidad y buenas prácticas.
+            
+            ### Tu tarea:
+            Revisa los cambios de código y enfócate en:
+            
+            1. **SINTAXIS Y ERRORES**: Detecta errores de sintaxis, variables no definidas, 
+               tipos incorrectos, imports faltantes.
+            
+            2. **BUENAS PRÁCTICAS**:
+               - Nomenclatura clara y consistente (snake_case, camelCase según lenguaje)
+               - Funciones y clases con responsabilidad única
+               - Evitar código repetido (DRY)
+               - Manejo adecuado de errores (try-catch, Result types)
+               - Cierre de recursos (archivos, conexiones, streams)
+            
+            3. **RENDIMIENTO**:
+               - Algoritmos ineficientes (bucles anidados innecesarios)
+               - Operaciones costosas dentro de bucles
+               - Memory leaks potenciales
+            
+            4. **SEGURIDAD**:
+               - Credenciales hardcodeadas
+               - SQL injection, XSS
+               - Validación de inputs
+            
+            ### Formato de respuesta:
+            - Sé conciso y directo
+            - Prioriza problemas críticos primero
+            - Ofrece ejemplos de código corregido cuando sea útil
+            - Usa emojis para categorizar: 🔴 crítica, 🟡 importante, 🟢 sugerencia
+            
+            Responde en español.
