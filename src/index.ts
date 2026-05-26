@@ -83,7 +83,7 @@ app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
 
-function validarEdad(edad) {
+function validarEdad(edad: any) {
     if (edad == 18) {  // Debería ser ===
         console.log("Eres mayor de edad");
     }
